@@ -27,4 +27,3 @@ class PageController extends Controller
         return redirect('/');
     }
 }
-//test
