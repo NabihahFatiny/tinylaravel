@@ -21,6 +21,10 @@
         <td>{{ $index + 1 }}</td>
         <td>{{ $student->name }}</td>
         <td>{{ $student->course }}</td>
+        <td>
+                <a href="/edit-student/{{ $student->id }}">Edit</a>
+<a href="/delete-student/{{ $student->id }}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
     </tr>
 @endforeach
     </table>

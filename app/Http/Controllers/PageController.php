@@ -26,4 +26,28 @@ class PageController extends Controller
 
         return redirect('/');
     }
+    public function edit($id)
+    {
+        $student = Student::findOrFail($id);
+        return view('edit-student', compact('student'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::findOrFail($id);
+
+        $student->update([
+            'name' => $request->name,
+            'course' => $request->course,
+        ]);
+
+        return redirect('/');
+    }
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+
+        return redirect('/');
+    }
 }
