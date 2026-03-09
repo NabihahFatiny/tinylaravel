@@ -3,30 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Students List</title>
-</head>
-<body>
-    <h1>Students List System</h1>
-    <a href="/add-student">Add Student</a><br><br>
-    <table border="1" cellpadding="10" cellspacing="0">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Course</th>
-        </tr>
+    <title>Students List System</title>
 
-        @foreach($students as $index => $student)
-    <tr>
-        <td>{{ $index + 1 }}</td>
-        <td>{{ $student->name }}</td>
-        <td>{{ $student->course }}</td>
-        <td>
-                <a href="/edit-student/{{ $student->id }}">Edit</a>
-<a href="/delete-student/{{ $student->id }}" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
-    </tr>
-@endforeach
-    </table>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="fw-bold text-primary mb-0">Students List System</h1>
+                    <a href="/add-student" class="btn btn-primary">+ Add Student</a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Course</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($students as $index => $student)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->course }}</td>
+                                <td>
+                                    <a href="/edit-student/{{ $student->id }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/delete-student/{{ $student->id }}"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Student</title>
-<form action="/update-student/{{ $student->id }}" method="POST">
-        @csrf
 
-        <label>Name:</label>
-        <input type="text" name="name" value="{{ $student->name }}" required><br><br>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
 
-        <label>Course:</label>
-        <input type="text" name="course" value="{{ $student->course }}" required><br><br>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <h1 class="fw-bold text-warning mb-4">Edit Student</h1>
 
-        <button type="submit">Update</button>
-    </form>
+                        <form action="/update-student/{{ $student->id }}" method="POST">
+                            @csrf
 
-    <br>
-    <a href="/">Back to Student List</a>
+                            <div class="mb-3">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" value="{{ $student->name }}" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Course</label>
+                                <input type="text" name="course" value="{{ $student->course }}" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-warning">Update</button>
+                            <a href="/" class="btn btn-secondary">Back</a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
