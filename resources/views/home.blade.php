@@ -18,6 +18,7 @@
                 </div>
 
 
+                <!-- tambah search bar untuk search nama student -->
                 <form action="/" method="GET">
                     <input type="text" name="search" placeholder="Search student" value="{{ request('search') }}"  class="form-control mb-3">
                     <button type="submit" class="btn btn-primary">Search</button>

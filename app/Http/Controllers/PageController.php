@@ -7,11 +7,25 @@ use App\Models\Student;
 
 class PageController extends Controller
 {
-    public function home()
+    //tambah function controller untuk search name
+    public function home(Request $request)
     {
-        $students = Student::all();
+        $search = $request->search;
+
+        $students = Student::query();
+
+        if ($search) {
+            $students->where('name', 'like', "%$search%")
+                ->orWhere('course', 'like', "%$search%");
+        }
+
+        $students = $students->get();
+
         return view('home', compact('students'));
     }
+
+
+
     public function create()
     {
         return view('add-student');
