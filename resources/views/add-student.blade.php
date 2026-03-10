@@ -9,35 +9,64 @@
 </head>
 <body class="bg-light">
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow-lg border-0 rounded-4">
-                    <div class="card-body p-4">
-                        <h1 class="fw-bold text-success mb-4">Add Student</h1>
+<div class="container mt-5">
+<div class="row justify-content-center">
+<div class="col-md-6">
 
-                        <form action="/add-student" method="POST">
-                            @csrf
+<div class="card shadow-lg border-0 rounded-4">
+<div class="card-body p-4">
 
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" required>
-                            </div>
+<h1 class="fw-bold text-success mb-4">Add Student</h1>
 
-                            <div class="mb-3">
-                                <label class="form-label">Course</label>
-                                <input type="text" name="course" class="form-control" required>
-                            </div>
+<form action="/add-student" method="POST">
+@csrf
 
-                            <button type="submit" class="btn btn-success">Save</button>
-                            <a href="/" class="btn btn-secondary">Back</a>
-                        </form>
+<div class="mb-3">
+<label class="form-label">Student ID</label>
+<input type="text" name="student_id" class="form-control" required>
+</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input type="text" name="name" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Course</label>
+<input type="text" name="course" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Faculty</label>
+<input type="text" name="faculty" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Email</label>
+<input type="email" name="email" class="form-control">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Phone</label>
+<input type="text" name="phone" class="form-control">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Address</label>
+<textarea name="address" class="form-control" rows="3"></textarea>
+</div>
+
+<button type="submit" class="btn btn-success">Save</button>
+<a href="/" class="btn btn-secondary">Back</a>
+
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
 
 </body>
 </html>

@@ -12,8 +12,13 @@
 
         <h2 class="mb-4">Student Details</h2>
 
-        <p><strong>Name:</strong> {{ $student->name }}</p>
-        <p><strong>Course:</strong> {{ $student->course }}</p>
+                <p><strong>Student ID :</strong> {{ $student->student_id }}</p>
+                <p><strong>Name :</strong> {{ $student->name }}</p>
+                <p><strong>Course :</strong> {{ $student->course }}</p>
+                <p><strong>Faculty :</strong> {{ $student->faculty }}</p>
+                <p><strong>Email :</strong> {{ $student->email }}</p>
+                <p><strong>Phone :</strong> {{ $student->phone }}</p>
+                <p><strong>Address :</strong> {{ $student->address }}</p>
 
         <a href="/" class="btn btn-secondary mt-3">Back</a>
 

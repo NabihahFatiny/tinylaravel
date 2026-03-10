@@ -7,7 +7,7 @@ use App\Models\Student;
 
 class PageController extends Controller
 {
-    //tambah function controller untuk search name
+    // Search student by name or course
     public function home(Request $request)
     {
         $search = $request->search;
@@ -19,13 +19,11 @@ class PageController extends Controller
                 ->orWhere('course', 'like', "%$search%");
         }
 
-        //only shows 7 students per page.
+        // only shows 7 students per page
         $students = $students->paginate(7)->withQueryString();
 
         return view('home', compact('students'));
     }
-
-
 
     public function create()
     {
@@ -34,12 +32,27 @@ class PageController extends Controller
 
     public function store(Request $request)
     {
-        Student::create([
-            'name' => $request->name,
-            'course' => $request->course,
+        $request->validate([
+            'student_id' => 'required|unique:students,student_id',
+            'name'       => 'required',
+            'course'     => 'required',
+            'faculty'    => 'required',
+            'email'      => 'nullable|email',
+            'phone'      => 'nullable',
+            'address'    => 'nullable',
         ]);
 
-        return redirect('/');
+        Student::create([
+            'student_id' => $request->student_id,
+            'name'       => $request->name,
+            'course'     => $request->course,
+            'faculty'    => $request->faculty,
+            'email'      => $request->email,
+            'phone'      => $request->phone,
+            'address'    => $request->address,
+        ]);
+
+        return redirect('/')->with('success', 'Student added successfully.');
     }
 
     public function show($id)
@@ -58,18 +71,34 @@ class PageController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        $student->update([
-            'name' => $request->name,
-            'course' => $request->course,
+        $request->validate([
+            'student_id' => 'required|unique:students,student_id,' . $student->id,
+            'name'       => 'required',
+            'course'     => 'required',
+            'faculty'    => 'required',
+            'email'      => 'nullable|email',
+            'phone'      => 'nullable',
+            'address'    => 'nullable',
         ]);
 
-        return redirect('/');
+        $student->update([
+            'student_id' => $request->student_id,
+            'name'       => $request->name,
+            'course'     => $request->course,
+            'faculty'    => $request->faculty,
+            'email'      => $request->email,
+            'phone'      => $request->phone,
+            'address'    => $request->address,
+        ]);
+
+        return redirect('/')->with('success', 'Student updated successfully.');
     }
+
     public function destroy($id)
     {
         $student = Student::findOrFail($id);
         $student->delete();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Student deleted successfully.');
     }
 }
