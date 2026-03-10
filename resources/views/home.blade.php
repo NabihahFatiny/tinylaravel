@@ -17,6 +17,13 @@
                     <a href="/add-student" class="btn btn-primary">+ Add Student</a>
                 </div>
 
+
+                <form action="/" method="GET">
+                    <input type="text" name="search" placeholder="Search student" value="{{ request('search') }}"  class="form-control mb-3">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover align-middle text-center">
                         <thead class="table-dark">
