@@ -33,7 +33,36 @@
 
 <div class="mb-3">
 <label class="form-label">Course</label>
-<input type="text" name="course" class="form-control" required>
+
+<select name="course" class="form-select" required>
+
+<option value="">-- Select Course --</option>
+
+<option value="Diploma in Computer Science">
+Diploma in Computer Science
+</option>
+
+<option value="Bachelor of Computer Science (Software Engineering) with Honours">
+Bachelor of Computer Science (Software Engineering) with Honours
+</option>
+
+<option value="Dual Degree Program – Bachelor of Computer Science (Software Engineering) with Honours">
+Dual Degree Program – Bachelor of Computer Science (Software Engineering) with Honours
+</option>
+
+<option value="Bachelor of Computer Science (Computer Systems & Networking) with Honours">
+Bachelor of Computer Science (Computer Systems & Networking) with Honours
+</option>
+
+<option value="Bachelor of Computer Science (Multimedia Software) with Honours">
+Bachelor of Computer Science (Multimedia Software) with Honours
+</option>
+
+<option value="Bachelor of Computer Science (Cyber Security) with Honours">
+Bachelor of Computer Science (Cyber Security) with Honours
+</option>
+
+</select>
 </div>
 
 <div class="mb-3">
