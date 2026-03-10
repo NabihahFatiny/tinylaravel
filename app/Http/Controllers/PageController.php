@@ -19,7 +19,8 @@ class PageController extends Controller
                 ->orWhere('course', 'like', "%$search%");
         }
 
-        $students = $students->get();
+        //only shows 7 students per page.
+        $students = $students->paginate(7)->withQueryString();
 
         return view('home', compact('students'));
     }
