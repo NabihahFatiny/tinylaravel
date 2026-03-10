@@ -46,8 +46,8 @@ Diploma in Computer Science
 Bachelor of Computer Science (Software Engineering) with Honours
 </option>
 
-<option value="Dual Degree Program – Bachelor of Computer Science (Software Engineering) with Honours">
-Dual Degree Program – Bachelor of Computer Science (Software Engineering) with Honours
+<option value="Dual Degree Program - Bachelor of Computer Science (Software Engineering) with Honours">
+Dual Degree Program - Bachelor of Computer Science (Software Engineering) with Honours
 </option>
 
 <option value="Bachelor of Computer Science (Computer Systems & Networking) with Honours">
