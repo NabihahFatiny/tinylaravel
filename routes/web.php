@@ -9,3 +9,4 @@ Route::post('/add-student', [PageController::class, 'store']);
 Route::get('/edit-student/{id}', [PageController::class, 'edit']);
 Route::post('/update-student/{id}', [PageController::class, 'update']);
 Route::get('/delete-student/{id}', [PageController::class, 'destroy']);
+Route::get('/student/{id}', [PageController::class, 'show']);
