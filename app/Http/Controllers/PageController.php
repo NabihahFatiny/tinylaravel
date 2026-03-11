@@ -52,7 +52,7 @@ class PageController extends Controller
             'address'    => $request->address,
         ]);
 
-        return redirect('/')->with('success', 'Student added successfully.');
+        return redirect('/students-page')->with('success', 'Student added successfully.');
     }
 
     public function show($id)
@@ -91,7 +91,7 @@ class PageController extends Controller
             'address'    => $request->address,
         ]);
 
-        return redirect('/')->with('success', 'Student updated successfully.');
+        return redirect('/students-page')->with('success', 'Student updated successfully');
     }
 
     public function destroy($id)
@@ -99,6 +99,6 @@ class PageController extends Controller
         $student = Student::findOrFail($id);
         $student->delete();
 
-        return redirect('/')->with('success', 'Student deleted successfully.');
+        return redirect('/students-page')->with('success', 'Student deleted successfully.');
     }
 }

@@ -20,7 +20,7 @@
                 <p><strong>Phone :</strong> {{ $student->phone }}</p>
                 <p><strong>Address :</strong> {{ $student->address }}</p>
 
-        <a href="/" class="btn btn-secondary mt-3">Back</a>
+       <a href="{{ route('students.page') }}" class="btn btn-secondary mt-3">Back</a>
 
     </div>
 </div>
