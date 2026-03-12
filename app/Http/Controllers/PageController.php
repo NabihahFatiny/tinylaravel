@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -19,7 +20,6 @@ class PageController extends Controller
                 ->orWhere('course', 'like', "%$search%");
         }
 
-        // only shows 7 students per page
         $students = $students->paginate(7)->withQueryString();
 
         return view('home', compact('students'));
@@ -37,7 +37,7 @@ class PageController extends Controller
             'name'       => 'required',
             'course'     => 'required',
             'faculty'    => 'required',
-            'email'      => 'nullable|email',
+            'email'      => 'required|email|unique:students,email|unique:users,email',
             'phone'      => 'nullable',
             'address'    => 'nullable',
         ]);
@@ -52,7 +52,14 @@ class PageController extends Controller
             'address'    => $request->address,
         ]);
 
-        return redirect('/students-page')->with('success', 'Student added successfully.');
+        User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => 'student',
+            'role'     => 'student',
+        ]);
+
+        return redirect('/students-page')->with('success', 'Student added successfully. Student account created.');
     }
 
     public function show($id)
@@ -76,7 +83,7 @@ class PageController extends Controller
             'name'       => 'required',
             'course'     => 'required',
             'faculty'    => 'required',
-            'email'      => 'nullable|email',
+            'email'      => 'required|email|unique:students,email,' . $student->id . '|unique:users,email,' . $student->user_id,
             'phone'      => 'nullable',
             'address'    => 'nullable',
         ]);
