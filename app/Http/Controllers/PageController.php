@@ -83,10 +83,12 @@ class PageController extends Controller
             'name'       => 'required',
             'course'     => 'required',
             'faculty'    => 'required',
-            'email'      => 'required|email|unique:students,email,' . $student->id . '|unique:users,email,' . $student->user_id,
+            'email'      => 'required|email|unique:students,email,' . $student->id,
             'phone'      => 'nullable',
             'address'    => 'nullable',
         ]);
+
+        $oldEmail = $student->email;
 
         $student->update([
             'student_id' => $request->student_id,
@@ -97,6 +99,15 @@ class PageController extends Controller
             'phone'      => $request->phone,
             'address'    => $request->address,
         ]);
+
+        $user = User::where('email', $oldEmail)->first();
+
+        if ($user) {
+            $user->update([
+                'name'  => $request->name,
+                'email' => $request->email,
+            ]);
+        }
 
         return redirect('/students-page')->with('success', 'Student updated successfully');
     }
