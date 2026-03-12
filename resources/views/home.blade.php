@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Students List System</title>
+    <title>Students List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light m-0">
@@ -21,7 +21,7 @@
             <div class="card-body p-3">
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="fw-bold text-primary mb-0">Students List System</h1>
+                    <h1 class="fw-bold text-primary mb-0">Students List</h1>
                     <a href="/add-student" class="btn btn-primary">+ Add Student</a>
                 </div>
 
