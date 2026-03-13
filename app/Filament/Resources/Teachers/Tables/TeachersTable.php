@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources\Teachers\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
+use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\TextColumn;
 
 class TeachersTable
 {
@@ -13,18 +12,25 @@ class TeachersTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('email')
+                    ->searchable(),
+
+                TextColumn::make('department'),
+
+                TextColumn::make('phone_number'),
             ])
             ->filters([
                 //
             ])
-            ->recordActions([
-                EditAction::make(),
+            ->actions([
+                // Temporarily removed to fix "Class not found" error
             ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+            ->bulkActions([
+                // Temporarily removed to fix "Class not found" error
             ]);
     }
 }
